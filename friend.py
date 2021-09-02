@@ -12,12 +12,15 @@ class Friend:
 
     @classmethod
     def get_all(cls):
+        # insert = "INSERT INTO friends (first_name) VALUES ('Sacha');"
         query = 'SELECT * FROM friends;'
 
+        # connectToMySQL('first_flask').query_db(insert)
         results = connectToMySQL('first_flask').query_db(query)
-
+        print(results)
         friends = []
 
         for friend in results:
             friends.append(cls(friend))
+        print(friends)
         return friends
